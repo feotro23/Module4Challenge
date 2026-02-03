@@ -1,0 +1,43 @@
+@page
+@model Module4Challenge.Pages.DadJokesModel
+@{
+    ViewData["Title"] = "Dad Joke Generator";
+}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-4">
+        <h1>Welcome to the Dad Joke Generator</h1>
+        <p class="lead text-muted">Prepare to groan...</p>
+    </div>
+
+    <div class="row">
+        @if (Model.CurrentJokes != null)
+        {
+            @foreach (var joke in Model.CurrentJokes)
+            {
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 shadow-sm text-center">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">
+                                <i class="bi bi-emoji-laughing"></i> Joke
+                            </h5>
+                            <p class="card-text lead">
+                                "@joke"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <div class="text-center mt-4 mb-5">
+        <form method="post">
+            <button type="submit" class="btn btn-primary btn-lg">
+                Get More Jokes
+            </button>
+        </form>
+    </div>
+
+</div>
